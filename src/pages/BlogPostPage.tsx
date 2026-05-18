@@ -24,7 +24,7 @@ type Post = {
 };
 
 const SITE_URL =
-  typeof window !== "undefined" ? window.location.origin : "https://chanai.lovable.app";
+  typeof window !== "undefined" ? window.location.origin : "https://chanai.tech";
 
 const BlogPostPage = () => {
   const { slug } = useParams<{ slug: string }>();

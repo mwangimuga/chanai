@@ -912,7 +912,7 @@ const BlogEditor = ({
             {/* Google search snippet */}
             <div className="rounded-xl bg-white/5 border border-white/10 p-4 space-y-1">
               <p className="text-[10px] font-mono uppercase tracking-wider text-white/40">Search preview</p>
-              <p className="text-xs text-emerald-300/80 truncate">chanai.lovable.app › community › blog › {value.slug || "slug"}</p>
+              <p className="text-xs text-emerald-300/80 truncate">chanai.tech › community › blog › {value.slug || "slug"}</p>
               <p className="text-blue-300 text-base leading-snug line-clamp-1">
                 {value.seo_title || value.title || "Untitled post"}
               </p>
