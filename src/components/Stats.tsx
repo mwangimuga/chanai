@@ -48,30 +48,27 @@ const Stats = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[150px]" />
+    <section ref={ref} className="relative py-36 overflow-hidden bg-background">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="container relative z-10">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">By the Numbers</p>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-            Built on Precision.
-            <br />
-            <span className="text-electric-gradient">Driven by Results.</span>
+      <div className="container relative z-10 px-6">
+        <div className="text-center max-w-2xl mx-auto mb-24">
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">By the Numbers</p>
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+            Built on precision. <span className="italic font-normal font-serif">Driven by results.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px bg-white/10 rounded-2xl overflow-hidden glass">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-px border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl overflow-hidden">
           {stats.map((s, i) => (
             <div
               key={i}
-              className="bg-[hsl(var(--navy-deep))]/70 p-8 lg:p-10 text-center hover:bg-primary/5 transition-colors group"
+              className="bg-background p-8 lg:p-10 text-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors group"
             >
-              <div className="font-display font-bold text-4xl lg:text-5xl text-electric-gradient mb-3 group-hover:scale-110 transition-transform">
+              <div className="font-display font-bold text-4xl lg:text-5xl text-primary mb-4 group-hover:scale-105 transition-transform duration-300">
                 <Counter value={s.value} suffix={s.suffix} decimals={s.decimals} start={visible} />
               </div>
-              <div className="text-xs font-mono text-white/65 uppercase tracking-[0.2em]">{s.label}</div>
+              <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">{s.label}</div>
             </div>
           ))}
         </div>

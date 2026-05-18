@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import * as Icons from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { trackClick } from "@/lib/analytics";
@@ -8,23 +7,17 @@ type DbService = {
   id: string;
   title: string;
   description: string;
-  icon: string;
   sort_order: number;
 };
 
 const FALLBACK: DbService[] = [
-  { id: "1", icon: "Brain", title: "AI Consulting", description: "Strategic guidance to integrate AI into your business operations.", sort_order: 1 },
-  { id: "2", icon: "Bot", title: "AI Agents", description: "Build intelligent systems that automate workflows and decision-making.", sort_order: 2 },
-  { id: "3", icon: "ShieldCheck", title: "Software Quality Assurance", description: "Ensure reliability, performance, and scalability of your applications.", sort_order: 3 },
-  { id: "4", icon: "Cog", title: "Automation Testing", description: "Selenium & JUnit frameworks for robust automated testing.", sort_order: 4 },
-  { id: "5", icon: "Activity", title: "Load Testing", description: "Validate performance under pressure before your users do.", sort_order: 5 },
-  { id: "6", icon: "GraduationCap", title: "Training & Mentorship", description: "Upskill your team with real-world QA and AI knowledge.", sort_order: 6 },
+  { id: "1", title: "AI Consulting", description: "Strategic guidance to integrate AI into your business operations.", sort_order: 1 },
+  { id: "2", title: "AI Agents", description: "Build intelligent systems that automate workflows and decision-making.", sort_order: 2 },
+  { id: "3", title: "Software Quality Assurance", description: "Ensure reliability, performance, and scalability of your applications.", sort_order: 3 },
+  { id: "4", title: "Automation Testing", description: "Selenium & JUnit frameworks for robust automated testing.", sort_order: 4 },
+  { id: "5", title: "Load Testing", description: "Validate performance under pressure before your users do.", sort_order: 5 },
+  { id: "6", title: "Training & Mentorship", description: "Upskill your team with real-world QA and AI knowledge.", sort_order: 6 },
 ];
-
-const resolveIcon = (name: string) => {
-  const I = (Icons as any)[name];
-  return I ?? Icons.Sparkles;
-};
 
 const Services = () => {
   const [services, setServices] = useState<DbService[]>(FALLBACK);
@@ -33,7 +26,7 @@ const Services = () => {
     (async () => {
       const { data } = await supabase
         .from("services")
-        .select("id,title,description,icon,sort_order")
+        .select("id,title,description,sort_order")
         .eq("is_published", true)
         .order("sort_order", { ascending: true });
       if (data && data.length) setServices(data as DbService[]);
@@ -41,45 +34,44 @@ const Services = () => {
   }, []);
 
   return (
-    <section id="services" className="relative py-28">
-      <div className="absolute inset-0 grid-bg opacity-25" />
-      <div className="container relative z-10">
-        <div className="max-w-2xl mb-16">
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">What We Do</p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-white mb-6 leading-[1.05] tracking-tight">
-            Engineering services for teams that
-            <span className="text-electric-gradient"> can&rsquo;t afford failure.</span>
+    <section id="services" className="relative py-36 bg-background">
+      <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
+      <div className="container relative z-10 px-6">
+        <div className="max-w-3xl mb-24">
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Expertise</p>
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-8 leading-[1.08] tracking-tight">
+            Consulting and engineering <span className="italic font-normal font-serif">built for absolute reliability.</span>
           </h2>
-          <p className="text-lg text-white/70 leading-relaxed">
-            From AI strategy and intelligent agents to precision quality assurance —
-            we engineer systems that don&rsquo;t fail.
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            From strategic integration and autonomous agents to rigorous quality assurance —
+            we build high-performance systems that scale.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s) => {
-            const Icon = resolveIcon(s.icon);
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16 border-t border-black/5 dark:border-white/5 pt-16">
+          {services.map((s, idx) => {
+            const numStr = String(idx + 1).padStart(2, "0");
             return (
               <div
                 key={s.id}
                 onClick={() => trackClick(`service:${s.title}`)}
-                className="group relative p-8 rounded-2xl glass hover:border-primary/30 transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer"
+                className="group relative flex flex-col justify-between items-start transition-all duration-300 cursor-pointer"
               >
-                <div className="absolute -top-20 -right-20 w-48 h-48 bg-primary/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative">
-                  <div className="inline-flex w-12 h-12 rounded-xl bg-gradient-electric items-center justify-center mb-6 shadow-glow group-hover:scale-110 transition-transform">
-                    <Icon className="w-5 h-5 text-primary-foreground" />
+                <div>
+                  <div className="font-serif italic text-4xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
+                    {numStr}
                   </div>
 
-                  <h3 className="font-display font-semibold text-xl mb-3 text-white group-hover:text-electric-gradient transition-colors">
+                  <h3 className="font-display font-semibold text-2xl mb-4 text-foreground group-hover:text-primary transition-colors">
                     {s.title}
                   </h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-6">{s.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
+                    {s.description}
+                  </p>
+                </div>
 
-                  <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
-                    Learn more <ArrowUpRight className="w-3 h-3" />
-                  </div>
+                <div className="flex items-center gap-1 text-[10px] font-mono uppercase tracking-[0.3em] text-primary transition-all duration-300">
+                  Read specs <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
             );

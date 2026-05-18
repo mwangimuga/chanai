@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { ArrowRight, Bot, ShieldCheck, Cog, FlaskConical, Activity, GraduationCap, Check, Clock, Target, Package, MessageCircle, ClipboardList, Hammer, Rocket, LifeBuoy } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ParticleField from "@/components/shared/ParticleField";
@@ -17,7 +17,6 @@ interface ServiceBlock {
   id: string;
   number: string;
   category: string;
-  icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   benefits: string[];
@@ -35,7 +34,6 @@ const SERVICES: ServiceBlock[] = [
     id: "ai-agents",
     number: "01",
     category: "AI Engineering",
-    icon: Bot,
     title: "AI Agent Development",
     description:
       "We design, architect, and deploy custom AI agents powered by large language models and modern AI frameworks. From customer service bots to autonomous data pipelines — we build agents that think, act, and learn.",
@@ -79,7 +77,6 @@ const SERVICES: ServiceBlock[] = [
     id: "qa-consulting",
     number: "02",
     category: "Quality Engineering",
-    icon: ShieldCheck,
     title: "QA Consulting",
     description:
       "Quality isn't an afterthought — it's engineered in. Our QA consultants embed with your team to design test strategies, build automation pipelines, and establish quality gates that prevent bugs from ever reaching production.",
@@ -111,7 +108,6 @@ const SERVICES: ServiceBlock[] = [
     id: "selenium",
     number: "03",
     category: "Training & Automation",
-    icon: Cog,
     title: "Selenium WebDriver Training",
     description:
       "Master the world's most widely-used web test automation framework. Our Selenium training goes from zero to professional — covering Java/Python bindings, Page Object Model, CI/CD integration, and advanced techniques.",
@@ -156,7 +152,6 @@ const SERVICES: ServiceBlock[] = [
     id: "junit",
     number: "04",
     category: "Quality Engineering",
-    icon: FlaskConical,
     title: "JUnit & Unit Testing Mastery",
     description:
       "Unit tests are the foundation of reliable software. We teach teams to write clean, maintainable unit tests with JUnit 5, Mockito, and TDD principles that make refactoring fearless.",
@@ -198,7 +193,6 @@ const SERVICES: ServiceBlock[] = [
     id: "load-testing",
     number: "05",
     category: "Performance",
-    icon: Activity,
     title: "Load & Performance Testing",
     description:
       "Is your application ready for Black Friday traffic? Our load testing service uses Apache JMeter, k6, and Gatling to simulate thousands of concurrent users and expose performance bottlenecks before they cost you revenue.",
@@ -230,7 +224,6 @@ const SERVICES: ServiceBlock[] = [
     id: "training",
     number: "06",
     category: "Training & Mentorship",
-    icon: GraduationCap,
     title: "Corporate AI & Automation Training",
     description:
       "From executives to developers — we design bespoke training programs that upskill your entire organization on AI tools, automation mindset, and modern QA practices. Delivered in-person in Kigali or virtually anywhere in Africa.",
@@ -278,32 +271,30 @@ const ServicesPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-36 pb-20 overflow-hidden min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0"><ParticleField density={70} /></div>
-        <div className="absolute inset-0 grid-bg opacity-25" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary/15 rounded-full blur-[150px]" />
+      <section className="relative pt-44 pb-24 overflow-hidden min-h-[60vh] flex items-center bg-background">
+        <div className="absolute inset-0 bg-gradient-hero opacity-30 dark:opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none"><ParticleField density={40} /></div>
+        <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
-        <div className="container relative z-10 max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 glass rounded-full text-[10px] font-mono uppercase tracking-[0.4em] text-white/75">
+        <div className="container relative z-10 max-w-4xl text-center px-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-black/10 dark:border-white/10 rounded-full text-[10px] font-mono uppercase tracking-[0.4em] text-foreground/75">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             Services
           </div>
-          <h1 className="font-display font-bold text-5xl md:text-7xl leading-[1.02] tracking-tight mb-6">
-            <span className="text-white">Engineering Excellence.</span>
-            <br />
-            <span className="text-electric-gradient">At Every Layer.</span>
+          <h1 className="font-display font-bold text-5xl md:text-7xl leading-[1.08] tracking-tight mb-8 text-foreground animate-fade-in-up">
+            Engineering excellence. <span className="italic font-normal font-serif">At every layer.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/70 mb-10">
-            From AI agents and intelligent automation to rigorous quality
-            assurance — we build systems that perform under any pressure.
+          <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
+            From strategic integration and autonomous agents to rigorous quality
+            assurance — we build high-performance systems that scale.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono tracking-widest uppercase animate-fade-in-up animation-delay-400">
             {SERVICES.map((s) => (
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="px-3 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-[0.2em] glass hover:border-primary/40 hover:text-white text-white/65 transition-all"
+                className="px-4 py-2 border border-black/5 dark:border-white/5 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 text-foreground transition-all duration-300"
               >
                 {s.title}
               </a>
@@ -315,80 +306,61 @@ const ServicesPage = () => {
       {/* Service detail sections */}
       <div className="relative">
         {SERVICES.map((s, i) => {
-          const Icon = s.icon;
           const reverse = i % 2 === 1;
           return (
             <section
               key={s.id}
               id={s.id}
-              className={`py-24 md:py-32 relative ${i % 2 === 1 ? "bg-secondary/20" : ""}`}
+              className={`py-32 md:py-44 relative bg-background border-t border-black/5 dark:border-white/5`}
             >
-              <div className="container">
-                <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
+              <div className="container px-6">
+                <div className={`grid lg:grid-cols-2 gap-16 lg:gap-24 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
                   {/* Copy */}
                   <div>
-                    <div className="flex items-center gap-3 mb-5">
-                      <span className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">{s.number}</span>
-                      <span className="h-px w-10 bg-border" />
+                    <div className="flex items-center gap-3 mb-6">
+                      <span className="font-mono text-sm uppercase tracking-[0.3em] text-muted-foreground">{s.number}</span>
+                      <span className="h-px w-10 bg-black/10 dark:bg-white/10" />
                       <span className="text-xs font-mono uppercase tracking-wider text-primary">{s.category}</span>
                     </div>
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-electric flex items-center justify-center shadow-glow shrink-0">
-                        <Icon className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <h2 className="font-display font-bold text-3xl md:text-5xl text-gradient leading-tight">
-                        {s.title}
-                      </h2>
-                    </div>
-                    <p className="text-muted-foreground text-lg leading-relaxed mb-8">{s.description}</p>
+                    
+                    <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground leading-tight mb-8">
+                      {s.title}
+                    </h2>
+                    
+                    <p className="text-muted-foreground text-lg leading-relaxed mb-10">{s.description}</p>
 
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-4 mb-10">
                       {s.benefits.map((b) => (
-                        <li key={b} className="flex items-start gap-3">
-                          <span className="mt-0.5 w-5 h-5 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                            <Check className="w-3 h-3 text-primary" />
-                          </span>
-                          <span className="text-sm text-foreground/90">{b}</span>
+                        <li key={b} className="flex items-start gap-4">
+                          <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          <span className="text-base text-foreground/90">{b}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Engagement meta */}
-                    <div className="grid grid-cols-2 gap-3 mb-6">
-                      <div className="glass rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <Clock className="w-3.5 h-3.5 text-primary" />
-                          <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground">Timeline</p>
-                        </div>
-                        <p className="text-sm text-foreground font-medium">{s.timeline}</p>
+                    <div className="grid grid-cols-2 gap-4 mb-8">
+                      <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl p-5">
+                        <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-2">Timeline</p>
+                        <p className="text-base text-foreground font-semibold">{s.timeline}</p>
                       </div>
-                      <div className="glass rounded-xl p-4">
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <Package className="w-3.5 h-3.5 text-primary" />
-                          <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground">Engagement</p>
-                        </div>
-                        <p className="text-sm text-foreground font-medium">{s.engagement}</p>
+                      <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl p-5">
+                        <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-2">Engagement</p>
+                        <p className="text-base text-foreground font-semibold">{s.engagement}</p>
                       </div>
                     </div>
 
                     {/* Expandable deliverables + outcomes */}
-                    <Accordion type="single" collapsible className="mb-6 glass rounded-xl px-5 border-0">
-                      <AccordionItem value="deliverables" className="border-b border-white/5">
-                        <AccordionTrigger className="hover:no-underline py-4 text-left [&>svg]:text-primary">
-                          <div className="flex items-center gap-3">
-                            <Package className="w-4 h-4 text-primary" />
-                            <span className="font-display font-semibold text-foreground text-base">
-                              What You Get — Deliverables Checklist
-                            </span>
-                          </div>
+                    <Accordion type="single" collapsible className="mb-8 border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl px-6">
+                      <AccordionItem value="deliverables" className="border-b border-black/5 dark:border-white/5">
+                        <AccordionTrigger className="hover:no-underline py-5 text-left [&>svg]:text-primary font-display font-semibold text-foreground text-base">
+                          What You Get — Deliverables
                         </AccordionTrigger>
-                        <AccordionContent className="pb-5">
-                          <ul className="space-y-2.5 pt-2">
+                        <AccordionContent className="pb-6">
+                          <ul className="space-y-3 pt-2">
                             {s.deliverables.map((d) => (
                               <li key={d} className="flex items-start gap-3">
-                                <span className="mt-1 w-4 h-4 rounded-md bg-primary/15 border border-primary/30 flex items-center justify-center shrink-0">
-                                  <Check className="w-2.5 h-2.5 text-primary" strokeWidth={3} />
-                                </span>
+                                <span className="mt-2 w-1.5 h-1.5 rounded-sm bg-primary shrink-0" />
                                 <span className="text-sm text-foreground/85 leading-relaxed">{d}</span>
                               </li>
                             ))}
@@ -396,19 +368,14 @@ const ServicesPage = () => {
                         </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="outcomes" className="border-0">
-                        <AccordionTrigger className="hover:no-underline py-4 text-left [&>svg]:text-primary">
-                          <div className="flex items-center gap-3">
-                            <Target className="w-4 h-4 text-primary" />
-                            <span className="font-display font-semibold text-foreground text-base">
-                              Engagement Outcomes
-                            </span>
-                          </div>
+                        <AccordionTrigger className="hover:no-underline py-5 text-left [&>svg]:text-primary font-display font-semibold text-foreground text-base">
+                          Engagement Outcomes
                         </AccordionTrigger>
-                        <AccordionContent className="pb-5">
-                          <ul className="space-y-2.5 pt-2">
+                        <AccordionContent className="pb-6">
+                          <ul className="space-y-3 pt-2">
                             {s.outcomes.map((o) => (
                               <li key={o} className="flex items-start gap-3">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                                <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                                 <span className="text-sm text-foreground/85 leading-relaxed">{o}</span>
                               </li>
                             ))}
@@ -418,22 +385,22 @@ const ServicesPage = () => {
                     </Accordion>
 
                     {/* Case study */}
-                    <div className="glass rounded-xl p-5 mb-6 border-l-2 border-primary">
+                    <div className="border-l-2 border-primary bg-black/5 dark:bg-white/5 rounded-r-xl p-6 mb-10">
                       <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-primary mb-2">Case Study</p>
-                      <p className="font-display font-semibold mb-1">{s.caseTitle}</p>
+                      <p className="font-display font-semibold mb-2 text-foreground">{s.caseTitle}</p>
                       <p className="text-sm text-muted-foreground">{s.caseOutcome}</p>
                     </div>
 
-
-                    <Button variant="electric" asChild>
-                      <Link to="/book">
-                        Book This Service <ArrowRight />
-                      </Link>
-                    </Button>
+                    <Link
+                      to="/book"
+                      className="group inline-flex items-center gap-2 text-primary font-serif text-lg font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+                    >
+                      Book This Service <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                    </Link>
                   </div>
 
                   {/* Visual */}
-                  <div>{s.visual}</div>
+                  <div className="w-full">{s.visual}</div>
                 </div>
               </div>
             </section>
@@ -450,44 +417,40 @@ const ServicesPage = () => {
       <TechStack />
 
       {/* How We Engage — 5 step process */}
-      <section className="py-28 relative">
-        <div className="absolute inset-0 grid-bg opacity-20" />
-        <div className="container relative z-10">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">How We Engage</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-4 leading-tight">
-              A <span className="text-electric-gradient">predictable process</span>
-              <br className="hidden md:block" />
-              for unpredictable problems.
+      <section className="py-36 relative bg-background border-t border-black/5 dark:border-white/5">
+        <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
+        <div className="container relative z-10 px-6">
+          <div className="max-w-3xl mx-auto text-center mb-24">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">How We Engage</p>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-6 leading-tight">
+              A predictable process <span className="italic font-normal font-serif">for complex systems.</span>
             </h2>
-            <p className="text-white/65 text-lg">
-              No surprises. No mystery. Five clearly-defined stages from first call to long-term partnership.
+            <p className="text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
+              Five clearly-defined stages from our first discovery call to long-term engineering partnership.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
             {[
-              { icon: MessageCircle, step: "01", title: "Discovery Call", desc: "30-min consult to understand goals, constraints, and success criteria.", duration: "30 min · Free" },
-              { icon: ClipboardList, step: "02", title: "Scoping & Proposal", desc: "Detailed scope, timeline, deliverables, and fixed-price proposal.", duration: "3–5 business days" },
-              { icon: Hammer, step: "03", title: "Build & Iterate", desc: "Weekly demos, transparent progress, your team in the loop.", duration: "Per project plan" },
-              { icon: Rocket, step: "04", title: "Launch & Handover", desc: "Production deployment, full documentation, team enablement.", duration: "1–2 weeks" },
-              { icon: LifeBuoy, step: "05", title: "Ongoing Partnership", desc: "Optional retainer for evolution, training, or 24/7 support.", duration: "Monthly · Cancel anytime" },
+              { step: "01", title: "Discovery Call", desc: "30-min consult to understand goals, constraints, and success criteria.", duration: "30 min · Free" },
+              { step: "02", title: "Scoping & Proposal", desc: "Detailed scope, timeline, deliverables, and fixed-price proposal.", duration: "3–5 business days" },
+              { step: "03", title: "Build & Iterate", desc: "Weekly demos, transparent progress, your team in the loop.", duration: "Per project plan" },
+              { step: "04", title: "Launch & Handover", desc: "Production deployment, full documentation, team enablement.", duration: "1–2 weeks" },
+              { step: "05", title: "Ongoing Partnership", desc: "Optional retainer for evolution, training, or support.", duration: "Monthly · Cancel anytime" },
             ].map((s) => {
-              const Icon = s.icon;
               return (
                 <div
                   key={s.step}
-                  className="group relative glass rounded-2xl p-6 hover:border-primary/40 hover:-translate-y-1 transition-all duration-500"
+                  className="group relative flex flex-col justify-between items-start border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-8 hover:border-primary/30 transition-all duration-300"
                 >
-                  <div className="absolute -top-3 left-6 px-2.5 py-1 rounded-md bg-gradient-electric text-primary-foreground text-[10px] font-mono font-bold tracking-widest shadow-glow">
-                    {s.step}
+                  <div>
+                    <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
+                      {s.step}
+                    </div>
+                    <h3 className="font-display font-semibold text-xl text-foreground mb-3">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">{s.desc}</p>
                   </div>
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center mt-3 mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="font-display font-semibold text-lg text-white mb-2">{s.title}</h3>
-                  <p className="text-sm text-white/65 leading-relaxed mb-4">{s.desc}</p>
-                  <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary/80">{s.duration}</p>
+                  <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary/80 mt-auto">{s.duration}</p>
                 </div>
               );
             })}
@@ -496,15 +459,15 @@ const ServicesPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-28 bg-secondary/15">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-14">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">FAQ</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white">
-              Questions, <span className="text-electric-gradient">answered.</span>
+      <section className="py-36 bg-black/5 dark:bg-white/5 border-t border-black/5 dark:border-white/5">
+        <div className="container max-w-4xl px-6">
+          <div className="text-center mb-20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">FAQ</p>
+            <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
+              Questions, <span className="italic font-normal font-serif">answered.</span>
             </h2>
           </div>
-          <Accordion type="single" collapsible className="space-y-3">
+          <Accordion type="single" collapsible className="space-y-4">
             {[
               { q: "What's the typical engagement size?", a: "We work on engagements ranging from 2-week sprints to 6-month embedded residencies. Most projects sit in the 6–12 week range. We'll tell you on our first call which model fits best." },
               { q: "Do you work with international clients?", a: "Yes. We deliver across Africa and globally — virtually or on-site. Our team is fluent in English, French, and Kinyarwanda, and we routinely collaborate with teams in EMEA, North America, and the Middle East." },
@@ -513,11 +476,11 @@ const ServicesPage = () => {
               { q: "Can you sign NDAs and data-processing agreements?", a: "Absolutely — and we expect to. We routinely sign mutual NDAs, DPAs, and security questionnaires before sensitive information is exchanged. Enterprise procurement-friendly contracts are our default." },
               { q: "What if we already have an internal team?", a: "Even better. Our preferred mode is augmentation, not replacement. We embed alongside your engineers, transfer knowledge as we go, and aim to leave your team stronger than we found it." },
             ].map((item, idx) => (
-              <AccordionItem key={idx} value={`faq-${idx}`} className="glass rounded-xl px-5 border-0">
-                <AccordionTrigger className="hover:no-underline py-5 text-left text-white font-display font-semibold text-base md:text-lg [&>svg]:text-primary">
+              <AccordionItem key={idx} value={`faq-${idx}`} className="border border-black/5 dark:border-white/5 bg-background rounded-xl px-6">
+                <AccordionTrigger className="hover:no-underline py-5 text-left text-foreground font-display font-semibold text-base md:text-lg [&>svg]:text-primary">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-white/70 leading-relaxed text-sm md:text-base">
+                <AccordionContent className="pb-5 text-muted-foreground leading-relaxed text-sm md:text-base">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -526,23 +489,29 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/15 rounded-full blur-[150px] animate-glow-pulse" />
-        <div className="container relative z-10 max-w-3xl text-center">
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-gradient mb-6">
-            Ready to Build Something Extraordinary?
+      {/* Footer CTA */}
+      <section className="py-40 relative overflow-hidden bg-background border-t border-black/5 dark:border-white/5">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] animate-glow-pulse pointer-events-none" />
+        <div className="container relative z-10 max-w-3xl text-center px-6">
+          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-8 leading-tight">
+            Ready to build something <span className="italic font-normal font-serif">extraordinary?</span>
           </h2>
-          <p className="text-muted-foreground text-lg mb-10">
-            Join 50+ companies that trusted ChanAI Tech to engineer their AI and QA future.
+          <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+            Join enterprise teams that trust ChanAI Tech to engineer their digital systems and automation.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="electric" size="xl" asChild>
-              <Link to="/book">Book a Free Consultation <ArrowRight /></Link>
-            </Button>
-            <Button variant="glass" size="xl" asChild>
-              <Link to="/about">Learn About Us</Link>
-            </Button>
+          <div className="flex flex-wrap gap-12 justify-center font-serif text-lg">
+            <Link
+              to="/book"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+            >
+              Book a Consultation <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+            </Link>
+            <Link
+              to="/about"
+              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-1 transition-all duration-300"
+            >
+              Learn About Us
+            </Link>
           </div>
         </div>
       </section>

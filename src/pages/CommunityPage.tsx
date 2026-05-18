@@ -9,61 +9,36 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import {
-  ArrowRight,
-  BookOpen,
-  Users,
-  GraduationCap,
-  Handshake,
-  Globe2,
-  Building2,
-  Landmark,
-  Cpu,
-  ShieldCheck,
-  Send,
-  Check,
-  Github,
-  Linkedin,
-  Youtube,
-  Mail,
-  Download,
-  Code2,
-  FlaskConical,
-  Activity,
-} from "lucide-react";
+import { ArrowRight, Send, Check } from "lucide-react";
 import { openWhatsApp, formatBookingMessage } from "@/lib/whatsapp";
 
-/* Partner categories — abstract logos rendered as monogram tiles. */
+/* Partner categories — simplified data without icons. */
 const PARTNERS = [
-  { name: "Government & Public Sector", icon: Landmark, count: "12+" },
-  { name: "Financial Services", icon: Building2, count: "9" },
-  { name: "Telecom & Infrastructure", icon: Globe2, count: "6" },
-  { name: "Technology & SaaS", icon: Cpu, count: "18" },
-  { name: "Healthcare & NGOs", icon: ShieldCheck, count: "7" },
-  { name: "Education & Training", icon: GraduationCap, count: "11" },
+  { name: "Government & Public Sector", count: "12+" },
+  { name: "Financial Services", count: "9" },
+  { name: "Telecom & Infrastructure", count: "6" },
+  { name: "Technology & SaaS", count: "18" },
+  { name: "Healthcare & NGOs", count: "7" },
+  { name: "Education & Training", count: "11" },
 ];
 
 const RESOURCES = [
   {
-    icon: BookOpen,
     title: "QA Strategy Playbook",
     desc: "A 24-page field guide to setting up a quality program from scratch — risk matrices, test pyramids, and CI/CD gates included.",
     tag: "PDF · 24 pages",
   },
   {
-    icon: Code2,
     title: "Selenium Starter Kit",
     desc: "Production-grade Selenium WebDriver project skeleton with Page Object Model, parallel execution, and HTML reporting.",
     tag: "GitHub Repo",
   },
   {
-    icon: FlaskConical,
     title: "JUnit 5 Pattern Library",
     desc: "Curated patterns for parameterized tests, lifecycle hooks, custom extensions, and Mockito best practices.",
     tag: "Open Source",
   },
   {
-    icon: Activity,
     title: "Load Test Workload Templates",
     desc: "JMeter and k6 templates modeled on real e-commerce, banking, and fintech workloads — ready to adapt.",
     tag: "Templates",
@@ -105,17 +80,14 @@ const PROGRAMS = [
 
 const ENGAGEMENT_MODELS = [
   {
-    icon: Handshake,
     title: "Strategic Partner",
     desc: "Long-term, exclusive partnerships with public-sector and enterprise clients. Joint roadmaps, dedicated teams, and shared KPIs.",
   },
   {
-    icon: Users,
     title: "Delivery Partner",
     desc: "Co-deliver complex programs with system integrators and consultancies. We bring deep AI and QA capability to your team.",
   },
   {
-    icon: GraduationCap,
     title: "Academic Partner",
     desc: "Universities, technical colleges, and bootcamps — we co-develop curriculum, host residencies, and place graduates.",
   },
@@ -169,63 +141,65 @@ const CommunityPage = () => {
   };
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-36 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-hero" />
-        <div className="absolute inset-0"><ParticleField density={70} /></div>
-        <div className="absolute inset-0 grid-bg opacity-25" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary/15 rounded-full blur-[150px]" />
+      <section className="relative pt-44 pb-28 overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-gradient-hero opacity-30 dark:opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 pointer-events-none"><ParticleField density={40} /></div>
+        <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
 
-        <div className="container relative z-10 max-w-4xl text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 glass rounded-full text-[10px] font-mono uppercase tracking-[0.4em] text-white/75">
+        <div className="container relative z-10 max-w-4xl text-center px-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 mb-8 border border-black/10 dark:border-white/10 rounded-full text-[10px] font-mono uppercase tracking-[0.4em] text-foreground/75">
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             Community &amp; Partners
           </div>
-          <h1 className="font-display font-bold text-5xl md:text-7xl leading-[1.02] tracking-tight mb-6">
-            <span className="text-white">Built with the people</span>
-            <br />
-            <span className="text-electric-gradient">we serve.</span>
+          <h1 className="font-display font-bold text-5xl md:text-7xl leading-[1.08] tracking-tight mb-8 text-foreground animate-fade-in-up">
+            Built with the people <span className="italic font-normal font-serif">we serve.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-white/70 mb-10">
+          <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
             We invest in the African engineering community and partner with
-            organizations that share our standard for excellence — from
-            ministries and multilaterals to universities and global technology
-            firms.
+            organizations that share our standard for excellence — from ministries and multilaterals to universities and global technology firms.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button variant="electric" size="lg" asChild>
-              <a href="#partner">Become a Partner <ArrowRight /></a>
-            </Button>
-            <Button variant="glass" size="lg" asChild>
-              <a href="#resources">Free Resources</a>
-            </Button>
+          <div className="flex flex-wrap items-center justify-center gap-12 font-serif text-lg animate-fade-in-up animation-delay-400">
+            <a
+              href="#partner"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+            >
+              Become a Partner <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+            </a>
+            <a
+              href="#resources"
+              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-1 transition-all duration-300"
+            >
+              Free Resources
+            </a>
           </div>
         </div>
       </section>
 
       {/* Partner categories */}
-      <section className="py-20 border-y border-white/5 bg-[hsl(var(--navy-deep))]/60">
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Partner Network</p>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
-              Trusted across <span className="text-electric-gradient">six sectors.</span>
+      <section className="py-24 border-y border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5">
+        <div className="container px-6">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Our Partner Network</p>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground">
+              Active across <span className="italic font-normal font-serif">six key sectors.</span>
             </h2>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {PARTNERS.map((p) => {
-              const Icon = p.icon;
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PARTNERS.map((p, idx) => {
+              const numStr = String(idx + 1).padStart(2, "0");
               return (
-                <div key={p.name} className="glass rounded-2xl p-6 flex items-center gap-4 hover:border-primary/40 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
-                    <Icon className="w-5 h-5 text-primary" />
+                <div key={p.name} className="flex items-start gap-5 border border-black/5 dark:border-white/5 bg-background rounded-2xl p-6 hover:border-primary/20 transition-all duration-300">
+                  <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 select-none font-normal">
+                    {numStr}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-display font-semibold text-white text-sm">{p.name}</p>
-                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/50 mt-1">
+                  <div>
+                    <p className="font-display font-semibold text-foreground text-base">{p.name}</p>
+                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mt-1.5">
                       {p.count} active engagements
                     </p>
                   </div>
@@ -237,24 +211,24 @@ const CommunityPage = () => {
       </section>
 
       {/* Engagement models */}
-      <section className="py-24">
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">How We Partner</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-              Three ways to <span className="text-electric-gradient">work together.</span>
+      <section className="py-36 bg-background">
+        <div className="container px-6">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">How We Partner</p>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+              Three pathways to <span className="italic font-normal font-serif">collaboration.</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {ENGAGEMENT_MODELS.map((m) => {
-              const Icon = m.icon;
+          <div className="grid md:grid-cols-3 gap-8">
+            {ENGAGEMENT_MODELS.map((m, idx) => {
+              const numStr = String(idx + 1).padStart(2, "0");
               return (
-                <div key={m.title} className="group glass rounded-2xl p-8 hover:border-primary/40 hover:-translate-y-1 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-electric flex items-center justify-center shadow-glow mb-5 group-hover:scale-110 transition-transform">
-                    <Icon className="w-5 h-5 text-primary-foreground" />
+                <div key={m.title} className="group border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-8 hover:border-primary/20 transition-all duration-300">
+                  <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
+                    {numStr}
                   </div>
-                  <h3 className="font-display font-semibold text-xl mb-3 text-white">{m.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed">{m.desc}</p>
+                  <h3 className="font-display font-semibold text-2xl mb-4 text-foreground">{m.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{m.desc}</p>
                 </div>
               );
             })}
@@ -263,38 +237,39 @@ const CommunityPage = () => {
       </section>
 
       {/* Resources */}
-      <section id="resources" className="py-24 bg-secondary/15">
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Free Resources</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-              Knowledge, freely <span className="text-electric-gradient">shared.</span>
+      <section id="resources" className="py-36 bg-black/5 dark:bg-white/5 border-t border-black/5 dark:border-white/5">
+        <div className="container px-6">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Free Resources</p>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+              Knowledge, <span className="italic font-normal font-serif">freely shared.</span>
             </h2>
-            <p className="text-white/70 mt-5">
-              Battle-tested materials we use with paying clients — released to
-              the community, no email wall.
+            <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
+              Battle-tested tools and playbooks we use with enterprise clients — released to the community.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-            {RESOURCES.map((r) => {
-              const Icon = r.icon;
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {RESOURCES.map((r, idx) => {
+              const numStr = String(idx + 1).padStart(2, "0");
               return (
-                <div key={r.title} className="glass rounded-2xl p-7 hover:border-primary/40 transition-all">
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 text-primary" />
+                <div key={r.title} className="border border-black/5 dark:border-white/5 bg-background rounded-2xl p-8 hover:border-primary/20 transition-all duration-300 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-start gap-4 mb-4">
+                      <span className="font-serif italic text-2xl text-primary/60 dark:text-primary/45 select-none font-normal">
+                        {numStr}
+                      </span>
+                      <div className="flex-1">
+                        <h3 className="font-display font-semibold text-xl text-foreground">{r.title}</h3>
+                        <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-muted-foreground mt-1.5">{r.tag}</p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-display font-semibold text-lg text-white">{r.title}</h3>
-                      <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-white/45 mt-1">{r.tag}</p>
-                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-8">{r.desc}</p>
                   </div>
-                  <p className="text-sm text-white/70 leading-relaxed mb-5">{r.desc}</p>
                   <button
                     onClick={() => openWhatsApp(`Hi ChanAI — please send me the "${r.title}" resource.`)}
-                    className="inline-flex items-center gap-2 text-sm text-primary hover:text-white transition-colors font-medium"
+                    className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-primary hover:text-primary/80 transition-colors border-b border-primary/30 pb-0.5 self-start"
                   >
-                    <Download className="w-4 h-4" /> Request access
+                    Request Access
                   </button>
                 </div>
               );
@@ -303,38 +278,41 @@ const CommunityPage = () => {
         </div>
       </section>
 
-      {/* Blog */}
+      {/* Blog Section */}
       <BlogSection />
 
       {/* Programs */}
-      <section className="py-24">
-        <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Community Programs</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-              Investing in <span className="text-electric-gradient">African engineering.</span>
+      <section className="py-36 bg-background border-t border-black/5 dark:border-white/5">
+        <div className="container px-6">
+          <div className="text-center max-w-2xl mx-auto mb-20">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Community Programs</p>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+              Investing in <span className="italic font-normal font-serif">African engineering.</span>
             </h2>
           </div>
-          <div className="grid lg:grid-cols-3 gap-6">
-            {PROGRAMS.map((p) => (
-              <div key={p.title} className="glass-strong rounded-2xl p-8 flex flex-col">
-                <h3 className="font-display font-semibold text-xl text-white mb-3">{p.title}</h3>
-                <p className="text-white/70 text-sm leading-relaxed mb-5">{p.desc}</p>
-                <ul className="space-y-2.5 mb-6 flex-1">
-                  {p.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-2.5 text-sm text-white/80">
-                      <span className="mt-0.5 w-4 h-4 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
-                        <Check className="w-2.5 h-2.5 text-primary" />
-                      </span>
-                      {b}
-                    </li>
-                  ))}
-                </ul>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {PROGRAMS.map((p, idx) => (
+              <div key={p.title} className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-8 flex flex-col justify-between">
+                <div>
+                  <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
+                    {String(idx + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="font-display font-semibold text-2xl text-foreground mb-4">{p.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{p.desc}</p>
+                  <ul className="space-y-3 mb-8">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-3 text-sm text-foreground/80">
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
                 <button
                   onClick={() => openWhatsApp(`Hi ChanAI — I'm interested in: ${p.title}.`)}
-                  className="inline-flex items-center gap-2 text-sm text-primary hover:text-white transition-colors font-medium"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-primary hover:text-primary/80 transition-colors border-b border-primary/30 pb-0.5 self-start"
                 >
-                  {p.cta} <ArrowRight className="w-4 h-4" />
+                  {p.cta} <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
             ))}
@@ -342,31 +320,29 @@ const CommunityPage = () => {
         </div>
       </section>
 
-      {/* Channels */}
-      <section className="py-20 bg-secondary/15">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Stay Connected</p>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white">
-              Follow our <span className="text-electric-gradient">work.</span>
+      {/* Stay Connected Channels */}
+      <section className="py-24 bg-black/5 dark:bg-white/5 border-t border-black/5 dark:border-white/5">
+        <div className="container max-w-4xl px-6">
+          <div className="text-center mb-16">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Stay Connected</p>
+            <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground">
+              Follow our <span className="italic font-normal font-serif">ongoing work.</span>
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { icon: Linkedin, label: "LinkedIn", href: "#" },
-              { icon: Github, label: "GitHub", href: "#" },
-              { icon: Youtube, label: "YouTube", href: "#" },
-              { icon: Mail, label: "Newsletter", href: "mailto:hello@chanai.tech" },
+              { label: "LinkedIn", href: "#" },
+              { label: "GitHub", href: "#" },
+              { label: "YouTube", href: "#" },
+              { label: "Newsletter", href: "mailto:hello@chanai.tech" },
             ].map((c) => {
-              const Icon = c.icon;
               return (
                 <a
                   key={c.label}
                   href={c.href}
-                  className="glass rounded-2xl p-6 flex flex-col items-center gap-3 hover:border-primary/40 hover:-translate-y-1 transition-all"
+                  className="border border-black/5 dark:border-white/5 bg-background rounded-2xl p-6 flex flex-col items-center justify-center hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
                 >
-                  <Icon className="w-6 h-6 text-primary" />
-                  <span className="text-sm font-medium text-white">{c.label}</span>
+                  <span className="text-sm font-semibold text-foreground">{c.label}</span>
                 </a>
               );
             })}
@@ -375,39 +351,39 @@ const CommunityPage = () => {
       </section>
 
       {/* Partner form */}
-      <section id="partner" className="py-24">
-        <div className="container max-w-3xl">
-          <div className="text-center mb-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Become a Partner</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-              Let&rsquo;s build the next <span className="text-electric-gradient">decade together.</span>
+      <section id="partner" className="py-36 border-t border-black/5 dark:border-white/5">
+        <div className="container max-w-3xl px-6">
+          <div className="text-center mb-16">
+            <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Become a Partner</p>
+            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+              Let's engineer the <span className="italic font-normal font-serif">next decade together.</span>
             </h2>
           </div>
 
           {!sent ? (
-            <div className="glass-strong rounded-2xl p-8 md:p-10 space-y-5">
-              <div className="grid sm:grid-cols-2 gap-4">
+            <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-8 md:p-10 space-y-6">
+              <div className="grid sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label className="text-xs font-mono uppercase tracking-wider text-white/65">Full name *</Label>
-                  <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Jane Doe" />
+                  <Label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Full name *</Label>
+                  <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Jane Doe" className="bg-background" />
                   {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-xs font-mono uppercase tracking-wider text-white/65">Organization *</Label>
-                  <Input value={form.organization} onChange={(e) => setForm({ ...form, organization: e.target.value })} placeholder="Acme Inc." />
+                  <Label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Organization *</Label>
+                  <Input value={form.organization} onChange={(e) => setForm({ ...form, organization: e.target.value })} placeholder="Acme Inc." className="bg-background" />
                   {errors.organization && <p className="text-xs text-destructive">{errors.organization}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-xs font-mono uppercase tracking-wider text-white/65">Work email *</Label>
-                  <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com" />
+                  <Label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Work email *</Label>
+                  <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@company.com" className="bg-background" />
                   {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
                 </div>
                 <div className="space-y-2">
-                  <Label className="text-xs font-mono uppercase tracking-wider text-white/65">Partnership type *</Label>
+                  <Label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Partnership type *</Label>
                   <select
                     value={form.type}
                     onChange={(e) => setForm({ ...form, type: e.target.value })}
-                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 text-sm"
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 text-sm text-foreground focus-visible:outline-none"
                   >
                     {ENGAGEMENT_MODELS.map((m) => (
                       <option key={m.title}>{m.title}</option>
@@ -417,31 +393,32 @@ const CommunityPage = () => {
                 </div>
               </div>
               <div className="space-y-2">
-                <Label className="text-xs font-mono uppercase tracking-wider text-white/65">Tell us about the opportunity *</Label>
+                <Label className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Tell us about the opportunity *</Label>
                 <Textarea
                   rows={5}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="What are you trying to achieve, and where could ChanAI Tech add value?"
+                  className="bg-background"
                 />
                 {errors.message && <p className="text-xs text-destructive">{errors.message}</p>}
               </div>
-              <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-3">
-                <p className="text-xs text-white/50">
-                  We respond within one business day. Your details stay confidential.
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-4">
+                <p className="text-xs text-muted-foreground max-w-sm">
+                  We respond within one business day. Your details stay strictly confidential.
                 </p>
-                <Button variant="electric" size="lg" onClick={submit}>
-                  <Send /> Send partnership inquiry
+                <Button variant="electric" size="lg" onClick={submit} className="w-full sm:w-auto">
+                  <Send className="w-4 h-4 mr-2" /> Send Inquiry
                 </Button>
               </div>
             </div>
           ) : (
-            <div className="glass-strong rounded-2xl p-12 text-center">
+            <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-12 text-center">
               <div className="w-20 h-20 rounded-full bg-gradient-electric mx-auto mb-6 flex items-center justify-center shadow-glow animate-scale-in">
                 <Check className="w-10 h-10 text-primary-foreground" />
               </div>
-              <h2 className="font-display font-bold text-3xl text-white mb-3">Inquiry received</h2>
-              <p className="text-white/70 mb-8">
+              <h2 className="font-display font-bold text-3xl text-foreground mb-3">Inquiry received</h2>
+              <p className="text-muted-foreground mb-8">
                 Thank you. Our partnerships team will be in touch within one business day.
               </p>
               <Button variant="electric" asChild>

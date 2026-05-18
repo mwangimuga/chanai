@@ -45,10 +45,10 @@ const Logo = ({
       </div>
       {variant === "full" && (
         <div className="flex flex-col leading-none">
-          <span className="font-display font-semibold text-base md:text-[17px] tracking-tight text-white">
+          <span className="font-display font-semibold text-base md:text-[17px] tracking-tight text-foreground">
             Chan<span className="text-electric-gradient">Ai</span>
           </span>
-          <span className="text-[9px] font-mono uppercase tracking-[0.28em] text-white/55 mt-1">
+          <span className="text-[9px] font-mono uppercase tracking-[0.28em] text-muted-foreground mt-1">
             Consultation · Automations · AI
           </span>
         </div>
