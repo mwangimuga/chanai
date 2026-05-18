@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, Send, Check } from "lucide-react";
+import { ArrowRight, Send, Check, Linkedin, Github, Youtube, Mail } from "lucide-react";
 import { openWhatsApp, formatBookingMessage } from "@/lib/whatsapp";
 
 /* Partner categories — simplified data without icons. */
@@ -331,17 +331,19 @@ const CommunityPage = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: "LinkedIn", href: "#" },
-              { label: "GitHub", href: "#" },
-              { label: "YouTube", href: "#" },
-              { label: "Newsletter", href: "mailto:hello@chanai.tech" },
+              { icon: Linkedin, label: "LinkedIn", href: "#", hoverColor: "group-hover:text-[#0077b5]" },
+              { icon: Github, label: "GitHub", href: "#", hoverColor: "group-hover:text-[#24292e] dark:group-hover:text-white" },
+              { icon: Youtube, label: "YouTube", href: "#", hoverColor: "group-hover:text-[#ff0000]" },
+              { icon: Mail, label: "Newsletter", href: "mailto:hello@chanai.tech", hoverColor: "group-hover:text-primary" },
             ].map((c) => {
+              const Icon = c.icon;
               return (
                 <a
                   key={c.label}
                   href={c.href}
-                  className="border border-black/5 dark:border-white/5 bg-background rounded-2xl p-6 flex flex-col items-center justify-center hover:border-primary/20 hover:-translate-y-1 transition-all duration-300"
+                  className="border border-black/5 dark:border-white/5 bg-background rounded-2xl p-6 flex flex-col items-center justify-center gap-3 hover:border-primary/20 hover:-translate-y-1 transition-all duration-300 group"
                 >
+                  <Icon className={`w-6 h-6 text-muted-foreground/60 transition-colors duration-300 ${c.hoverColor}`} />
                   <span className="text-sm font-semibold text-foreground">{c.label}</span>
                 </a>
               );
