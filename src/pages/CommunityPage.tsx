@@ -156,23 +156,23 @@ const CommunityPage = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             Community &amp; Partners
           </div>
-          <h1 className="font-display font-bold text-5xl md:text-7xl leading-[1.08] tracking-tight mb-8 text-foreground animate-fade-in-up">
+          <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[58px] leading-[1.1] tracking-tight mb-6 text-foreground animate-fade-in-up">
             Built with the people <span className="italic font-normal font-serif">we serve.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
+          <p className="max-w-2xl mx-auto text-sm md:text-[15px] text-muted-foreground mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
             We invest in the African engineering community and partner with
             organizations that share our standard for excellence — from ministries and multilaterals to universities and global technology firms.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-12 font-serif text-lg animate-fade-in-up animation-delay-400">
+          <div className="flex flex-wrap items-center justify-center gap-10 font-serif text-sm animate-fade-in-up animation-delay-400">
             <a
               href="#partner"
-              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-0.5 transition-all duration-300"
             >
-              Become a Partner <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+              Become a Partner <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </a>
             <a
               href="#resources"
-              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-1 transition-all duration-300"
+              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5 transition-all duration-300"
             >
               Free Resources
             </a>
@@ -185,7 +185,7 @@ const CommunityPage = () => {
         <div className="container px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Our Partner Network</p>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground">
               Active across <span className="italic font-normal font-serif">six key sectors.</span>
             </h2>
           </div>
@@ -198,8 +198,8 @@ const CommunityPage = () => {
                     {numStr}
                   </div>
                   <div>
-                    <p className="font-display font-semibold text-foreground text-base">{p.name}</p>
-                    <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mt-1.5">
+                    <p className="font-display font-semibold text-foreground text-sm">{p.name}</p>
+                    <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-muted-foreground mt-1">
                       {p.count} active engagements
                     </p>
                   </div>
@@ -215,7 +215,7 @@ const CommunityPage = () => {
         <div className="container px-6">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">How We Partner</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">
               Three pathways to <span className="italic font-normal font-serif">collaboration.</span>
             </h2>
           </div>
@@ -227,8 +227,8 @@ const CommunityPage = () => {
                   <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
                     {numStr}
                   </div>
-                  <h3 className="font-display font-semibold text-2xl mb-4 text-foreground">{m.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{m.desc}</p>
+                  <h3 className="font-display font-semibold text-lg md:text-xl mb-3 text-foreground">{m.title}</h3>
+                  <p className="text-muted-foreground text-[13px] leading-relaxed">{m.desc}</p>
                 </div>
               );
             })}
@@ -241,10 +241,10 @@ const CommunityPage = () => {
         <div className="container px-6">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Free Resources</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">
               Knowledge, <span className="italic font-normal font-serif">freely shared.</span>
             </h2>
-            <p className="text-muted-foreground mt-6 text-lg leading-relaxed">
+            <p className="text-muted-foreground mt-5 text-sm leading-relaxed">
               Battle-tested tools and playbooks we use with enterprise clients — released to the community.
             </p>
           </div>
@@ -259,11 +259,11 @@ const CommunityPage = () => {
                         {numStr}
                       </span>
                       <div className="flex-1">
-                        <h3 className="font-display font-semibold text-xl text-foreground">{r.title}</h3>
-                        <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-muted-foreground mt-1.5">{r.tag}</p>
+                        <h3 className="font-display font-semibold text-lg text-foreground">{r.title}</h3>
+                        <p className="text-[8px] font-mono uppercase tracking-[0.25em] text-muted-foreground mt-1">{r.tag}</p>
                       </div>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-8">{r.desc}</p>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed mb-6">{r.desc}</p>
                   </div>
                   <button
                     onClick={() => openWhatsApp(`Hi ChanAI — please send me the "${r.title}" resource.`)}
@@ -286,7 +286,7 @@ const CommunityPage = () => {
         <div className="container px-6">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Community Programs</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">
               Investing in <span className="italic font-normal font-serif">African engineering.</span>
             </h2>
           </div>
@@ -297,11 +297,11 @@ const CommunityPage = () => {
                   <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
                     {String(idx + 1).padStart(2, "0")}
                   </div>
-                  <h3 className="font-display font-semibold text-2xl text-foreground mb-4">{p.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{p.desc}</p>
-                  <ul className="space-y-3 mb-8">
+                  <h3 className="font-display font-semibold text-lg md:text-xl text-foreground mb-3">{p.title}</h3>
+                  <p className="text-muted-foreground text-[13px] leading-relaxed mb-5">{p.desc}</p>
+                  <ul className="space-y-2.5 mb-6">
                     {p.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-sm text-foreground/80">
+                      <li key={b} className="flex items-start gap-3 text-[13px] text-foreground/80">
                         <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                         <span>{b}</span>
                       </li>
@@ -325,7 +325,7 @@ const CommunityPage = () => {
         <div className="container max-w-4xl px-6">
           <div className="text-center mb-16">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Stay Connected</p>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground">
               Follow our <span className="italic font-normal font-serif">ongoing work.</span>
             </h2>
           </div>
@@ -357,7 +357,7 @@ const CommunityPage = () => {
         <div className="container max-w-3xl px-6">
           <div className="text-center mb-16">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Become a Partner</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">
               Let's engineer the <span className="italic font-normal font-serif">next decade together.</span>
             </h2>
           </div>

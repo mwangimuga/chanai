@@ -14,25 +14,25 @@ const CTA = () => {
       <div className="container relative z-10 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Let's talk</p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-8 leading-tight">
+          <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground mb-6 leading-tight">
             Ready to build systems <span className="italic font-normal font-serif">you can trust?</span>
           </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
             Speak directly with our engineering team or book an exploratory call.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-12 font-serif text-lg mb-16">
+          <div className="flex flex-wrap items-center justify-center gap-10 font-serif text-sm mb-12">
             <Link
               to="/book"
-              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-0.5 transition-all duration-300"
             >
-              Book a Consultation <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+              Book a Consultation <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </Link>
             <a
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-1 transition-all duration-300"
+              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5 transition-all duration-300"
             >
               Chat on WhatsApp
             </a>

@@ -27,7 +27,7 @@ const Testimonials = () => {
       <div className="container relative z-10 px-6">
         <div className="text-center max-w-2xl mx-auto mb-24">
           <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Client Voices</p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+          <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">
             Trusted by builders, <span className="italic font-normal font-serif">teams, and innovators.</span>
           </h2>
         </div>
@@ -47,7 +47,7 @@ const Testimonials = () => {
                 </p>
               </div>
               <div className="pt-6 border-t border-black/5 dark:border-white/5">
-                <div className="font-display font-semibold text-foreground">{t.author}</div>
+                <div className="font-display font-semibold text-sm text-foreground">{t.author}</div>
                 <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground mt-1">{t.company}</div>
               </div>
             </div>

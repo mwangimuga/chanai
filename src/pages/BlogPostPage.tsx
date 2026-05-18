@@ -145,7 +145,7 @@ const BlogPostPage = () => {
             {post.category}
           </span>
 
-          <h1 className="font-display font-bold text-4xl md:text-5xl leading-tight text-white mb-5">
+          <h1 className="font-display font-bold text-2xl md:text-4xl leading-tight text-white mb-5">
             {post.title}
           </h1>
 
@@ -174,12 +174,12 @@ const BlogPostPage = () => {
           )}
 
           {post.excerpt && (
-            <p className="text-lg text-white/75 leading-relaxed mb-10 border-l-2 border-primary/50 pl-5">
+            <p className="text-[15px] md:text-base text-white/75 leading-relaxed mb-8 border-l-2 border-primary/50 pl-5">
               {post.excerpt}
             </p>
           )}
 
-          <div className="prose prose-invert max-w-none prose-headings:font-display prose-headings:text-white prose-p:text-white/80 prose-p:leading-relaxed prose-a:text-primary prose-strong:text-white prose-code:text-primary prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-secondary/40 prose-pre:border prose-pre:border-white/10 prose-li:text-white/80 prose-blockquote:border-primary/50 prose-blockquote:text-white/70">
+          <div className="prose prose-sm md:prose-base prose-invert max-w-none prose-headings:font-display prose-headings:text-white prose-p:text-white/80 prose-p:leading-relaxed prose-a:text-primary prose-strong:text-white prose-code:text-primary prose-code:bg-white/5 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none prose-pre:bg-secondary/40 prose-pre:border prose-pre:border-white/10 prose-li:text-white/80 prose-blockquote:border-primary/50 prose-blockquote:text-white/70">
             <ReactMarkdown>{post.body}</ReactMarkdown>
           </div>
 

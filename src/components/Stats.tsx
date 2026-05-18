@@ -54,7 +54,7 @@ const Stats = () => {
       <div className="container relative z-10 px-6">
         <div className="text-center max-w-2xl mx-auto mb-24">
           <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">By the Numbers</p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-tight">
+          <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight">
             Built on precision. <span className="italic font-normal font-serif">Driven by results.</span>
           </h2>
         </div>
@@ -65,7 +65,7 @@ const Stats = () => {
               key={i}
               className="bg-background p-8 lg:p-10 text-center hover:bg-black/5 dark:hover:bg-white/5 transition-colors group"
             >
-              <div className="font-display font-bold text-4xl lg:text-5xl text-primary mb-4 group-hover:scale-105 transition-transform duration-300">
+              <div className="font-display font-bold text-3xl lg:text-4xl text-primary mb-3 group-hover:scale-105 transition-transform duration-300">
                 <Counter value={s.value} suffix={s.suffix} decimals={s.decimals} start={visible} />
               </div>
               <div className="text-[10px] font-mono text-muted-foreground uppercase tracking-[0.2em]">{s.label}</div>

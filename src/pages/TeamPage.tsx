@@ -74,10 +74,10 @@ const TeamPage = () => {
           {/* Heading */}
           <div className="max-w-3xl mb-24">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Our Experts</p>
-            <h1 className="font-display font-bold text-5xl md:text-7xl text-foreground leading-[1.08] mb-8">
+            <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[58px] text-foreground leading-[1.1] mb-6">
               Engineers and advisors <span className="italic font-normal font-serif">who deliver excellence.</span>
             </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed max-w-2xl">
               Our team consists of senior specialists, AI researchers, and rigorous quality assurance veterans dedicated to building robust infrastructure.
             </p>
           </div>
@@ -93,12 +93,12 @@ const TeamPage = () => {
                   <div className="w-16 h-16 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center mb-6 text-lg font-display font-semibold text-primary bg-background">
                     {member.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}
                   </div>
-                  <h3 className="font-display font-semibold text-xl text-foreground mb-1 group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-semibold text-lg text-foreground mb-1 group-hover:text-primary transition-colors">
                     {member.name}
                   </h3>
-                  <p className="text-[9px] font-mono uppercase tracking-[0.2em] text-primary mb-1">{member.role}</p>
-                  <p className="text-xs text-muted-foreground font-mono uppercase tracking-wide mb-5">{member.specialty}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{member.bio}</p>
+                  <p className="text-[8px] font-mono uppercase tracking-[0.2em] text-primary mb-1">{member.role}</p>
+                  <p className="text-[10px] text-muted-foreground font-mono uppercase tracking-wide mb-4">{member.specialty}</p>
+                  <p className="text-[13px] text-muted-foreground leading-relaxed mb-4">{member.bio}</p>
                 </div>
               </div>
             ))}

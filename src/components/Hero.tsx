@@ -22,28 +22,28 @@ const Hero = () => {
           <span>Consulting · Engineering · Quality Assurance</span>
         </div>
 
-        <h1 className="font-display font-bold text-5xl md:text-7xl lg:text-8xl leading-[1.08] tracking-tight mb-8 text-foreground animate-fade-in-up">
+        <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[58px] leading-[1.1] tracking-tight mb-6 text-foreground animate-fade-in-up">
           Engineering digital solutions <span className="italic font-normal font-serif">built on precision.</span>
         </h1>
 
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
+        <p className="max-w-2xl mx-auto text-sm md:text-[15px] text-muted-foreground mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
           A Kigali-based technology consulting firm engineering custom intelligent agents and
           enterprise-grade software automation for teams that cannot afford to fail.
         </p>
 
         {/* Minimal, high-end editorial links (No loud CTAs) */}
-        <div className="flex flex-wrap items-center justify-center gap-12 font-serif text-lg animate-fade-in-up animation-delay-400">
+        <div className="flex flex-wrap items-center justify-center gap-10 font-serif text-sm animate-fade-in-up animation-delay-400">
           <Link
             to="/book"
             onClick={() => trackClick("hero:book-consultation")}
-            className="group inline-flex items-center gap-2 text-foreground font-semibold border-b border-foreground/30 hover:border-foreground pb-1 transition-all duration-300"
+            className="group inline-flex items-center gap-2 text-foreground font-semibold border-b border-foreground/30 hover:border-foreground pb-0.5 transition-all duration-300"
           >
-            Start a Project <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+            Start a Project <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
           </Link>
           <a
             href="#services"
             onClick={() => trackClick("hero:explore-services")}
-            className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-1 transition-all duration-300"
+            className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5 transition-all duration-300"
           >
             Explore Services
           </a>

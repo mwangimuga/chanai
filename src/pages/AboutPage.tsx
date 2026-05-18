@@ -73,7 +73,7 @@ const AboutPage = () => {
           <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-10 flex flex-col justify-between">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Our Mission</p>
-              <p className="font-display text-2xl md:text-3xl leading-relaxed text-foreground">
+              <p className="font-display text-[18px] md:text-xl leading-relaxed text-foreground">
                 To bring world-class consulting, AI engineering, and software
                 quality assurance within reach of every ambitious African
                 organization — and to compete, on merit, with the best in the world.
@@ -83,7 +83,7 @@ const AboutPage = () => {
           <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-2xl p-10 flex flex-col justify-between">
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-accent mb-6">Our Vision</p>
-              <p className="font-display text-2xl md:text-3xl leading-relaxed text-foreground">
+              <p className="font-display text-[18px] md:text-xl leading-relaxed text-foreground">
                 A future where every African business operates with the{" "}
                 <span className="text-primary font-semibold">precision, intelligence, and quality</span>{" "}
                 of the world's top technology companies.
@@ -98,7 +98,7 @@ const AboutPage = () => {
         <div className="container px-6">
           <div className="text-center max-w-2xl mx-auto mb-24">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Core Values</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-[1.08]">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-[1.1]">
               The principles that <span className="italic font-normal font-serif">guide our work.</span>
             </h2>
           </div>
@@ -111,8 +111,8 @@ const AboutPage = () => {
                     <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-5 select-none font-normal">
                       {numStr}
                     </div>
-                    <h3 className="font-display font-semibold text-2xl mb-3 text-foreground">{v.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">{v.desc}</p>
+                    <h3 className="font-display font-semibold text-lg md:text-xl mb-2.5 text-foreground">{v.title}</h3>
+                    <p className="text-muted-foreground text-[13px] leading-relaxed max-w-xs">{v.desc}</p>
                   </div>
                 </div>
               );
@@ -126,10 +126,10 @@ const AboutPage = () => {
         <div className="container px-6">
           <div className="max-w-3xl mb-24">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Leadership</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-[1.08] mb-8">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-[1.1] mb-6">
               The people <span className="italic font-normal font-serif">behind the work.</span>
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
               Meet our core engineering and strategy leadership driving World-Class solutions from Kigali.
             </p>
           </div>
@@ -140,20 +140,20 @@ const AboutPage = () => {
                 <div className="w-20 h-20 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center mb-6 text-xl font-display font-semibold text-primary bg-background">
                   {m.name.split(" ").slice(0, 2).map((w) => w[0]).join("")}
                 </div>
-                <h3 className="font-display font-semibold text-xl text-foreground">{m.name}</h3>
-                <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-primary mt-1.5 mb-4">{m.role}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
+                <h3 className="font-display font-semibold text-lg text-foreground">{m.name}</h3>
+                <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-primary mt-1 mb-3">{m.role}</p>
+                <p className="text-[13px] text-muted-foreground leading-relaxed">{m.bio}</p>
               </div>
             ))}
           </div>
 
           {/* View Full Team CTA */}
-          <div className="text-center font-serif text-lg">
+          <div className="text-center font-serif text-sm">
             <Link
               to="/about/team"
-              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-0.5 transition-all duration-300"
             >
-              Meet the Whole Team <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+              Meet the Whole Team <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </Link>
           </div>
         </div>
@@ -164,7 +164,7 @@ const AboutPage = () => {
         <div className="container max-w-5xl px-6">
           <div className="text-center mb-28">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Our Journey</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground leading-[1.08]">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-[1.1]">
               From Kigali, <span className="italic font-normal font-serif">to the world.</span>
             </h2>
           </div>
@@ -182,15 +182,15 @@ const AboutPage = () => {
                 >
                   {/* Huge Serif Year Block */}
                   <div className={`w-full md:w-1/2 flex ${isEven ? "md:justify-end" : "md:justify-start"}`}>
-                    <div className="font-serif italic text-7xl md:text-9xl text-primary/30 dark:text-primary/20 select-none leading-none font-normal">
+                    <div className="font-serif italic text-5xl md:text-7xl text-primary/30 dark:text-primary/20 select-none leading-none font-normal">
                       {t.year}
                     </div>
                   </div>
 
                   {/* Copy Block */}
                   <div className="w-full md:w-1/2 pl-4 border-l-2 border-primary/30">
-                    <h3 className="font-display font-semibold text-2xl mb-3 text-foreground">{t.title}</h3>
-                    <p className="text-muted-foreground text-base leading-relaxed max-w-md">{t.desc}</p>
+                    <h3 className="font-display font-semibold text-lg md:text-xl mb-2.5 text-foreground">{t.title}</h3>
+                    <p className="text-muted-foreground text-[14px] leading-relaxed max-w-md">{t.desc}</p>
                   </div>
                 </div>
               );
@@ -202,15 +202,15 @@ const AboutPage = () => {
       {/* Footer CTA */}
       <section className="py-36 bg-background border-t border-black/5 dark:border-white/5">
         <div className="container max-w-3xl text-center px-6">
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground mb-8 leading-tight">
+          <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground mb-6 leading-tight">
             Want to be part of <span className="italic font-normal font-serif">our journey?</span>
           </h2>
-          <div className="flex justify-center font-serif text-lg">
+          <div className="flex justify-center font-serif text-sm">
             <Link
               to="/book"
-              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-0.5 transition-all duration-300"
             >
-              Start a Conversation <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+              Start a Conversation <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </Link>
           </div>
         </div>

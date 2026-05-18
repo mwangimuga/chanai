@@ -39,10 +39,10 @@ const Services = () => {
       <div className="container relative z-10 px-6">
         <div className="max-w-3xl mb-24">
           <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">Expertise</p>
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-8 leading-[1.08] tracking-tight">
+          <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground mb-6 leading-[1.1] tracking-tight">
             Consulting and engineering <span className="italic font-normal font-serif">built for absolute reliability.</span>
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
             From strategic integration and autonomous agents to rigorous quality assurance —
             we build high-performance systems that scale.
           </p>
@@ -62,10 +62,10 @@ const Services = () => {
                     {numStr}
                   </div>
 
-                  <h3 className="font-display font-semibold text-2xl mb-4 text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-semibold text-lg md:text-xl mb-3 text-foreground group-hover:text-primary transition-colors">
                     {s.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-sm">
+                  <p className="text-muted-foreground text-[13px] leading-relaxed mb-5 max-w-sm">
                     {s.description}
                   </p>
                 </div>

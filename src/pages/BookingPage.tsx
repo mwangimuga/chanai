@@ -102,11 +102,11 @@ const BookingPage = () => {
           {!done ? (
             <>
               <div className="text-center mb-10">
-                <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4">Book a Consultation</p>
-                <h1 className="font-display font-bold text-4xl md:text-5xl text-gradient mb-3">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-3">Book a Consultation</p>
+                <h1 className="font-display font-bold text-2xl md:text-4xl text-gradient mb-2.5">
                   Let's Build Something Extraordinary
                 </h1>
-                <p className="text-muted-foreground">Free 30-min discovery call. Response within 24 hours.</p>
+                <p className="text-sm text-muted-foreground">Free 30-min discovery call. Response within 24 hours.</p>
               </div>
 
               <div className="glass-strong rounded-2xl p-6 md:p-10">
@@ -114,8 +114,8 @@ const BookingPage = () => {
 
                 {step === 1 && (
                   <div>
-                    <h2 className="font-display text-2xl font-semibold mb-2">What can we help you with?</h2>
-                    <p className="text-sm text-muted-foreground mb-6">Select one or more services.</p>
+                    <h2 className="font-display text-lg md:text-xl font-semibold mb-1.5">What can we help you with?</h2>
+                    <p className="text-[13px] text-muted-foreground mb-5">Select one or more services.</p>
                     <div className="grid sm:grid-cols-2 gap-3">
                       {SERVICES.map((s) => {
                         const sel = services.includes(s.id);
@@ -149,7 +149,7 @@ const BookingPage = () => {
 
                 {step === 2 && (
                   <div className="space-y-4">
-                    <h2 className="font-display text-2xl font-semibold mb-2">Tell us about you</h2>
+                    <h2 className="font-display text-lg md:text-xl font-semibold mb-1.5">Tell us about you</h2>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <Field label="Full Name *" error={errors.name}>
                         <Input value={contact.name} onChange={(e)=>setContact({...contact, name:e.target.value})} placeholder="Jane Doe" />
@@ -179,7 +179,7 @@ const BookingPage = () => {
 
                 {step === 3 && (
                   <div className="space-y-5">
-                    <h2 className="font-display text-2xl font-semibold mb-2">Project details</h2>
+                    <h2 className="font-display text-lg md:text-xl font-semibold mb-1.5">Project details</h2>
                     <Field label={`What's your project about? (${details.project.length}/2000)`} error={errors.project}>
                       <Textarea rows={5} value={details.project} onChange={(e)=>setDetails({...details, project:e.target.value})} placeholder="Tell us about your goals, current stack, and what success looks like..." />
                     </Field>
@@ -191,7 +191,7 @@ const BookingPage = () => {
 
                 {step === 4 && (
                   <div className="space-y-5">
-                    <h2 className="font-display text-2xl font-semibold mb-2">Review & Confirm</h2>
+                    <h2 className="font-display text-lg md:text-xl font-semibold mb-1.5">Review & Confirm</h2>
                     <SummaryRow label="Services" value={services.join(", ")} onEdit={()=>setStep(1)} />
                     <SummaryRow label="Name" value={`${contact.name}${contact.company ? ` · ${contact.company}` : ""}`} onEdit={()=>setStep(2)} />
                     <SummaryRow label="Contact" value={`${contact.email} · ${contact.phone} · ${contact.country}`} onEdit={()=>setStep(2)} />

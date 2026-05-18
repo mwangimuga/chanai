@@ -53,7 +53,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <h4 className="font-display font-semibold mb-6 text-xs uppercase tracking-[0.3em] text-foreground">
               Services
             </h4>
-            <ul className="space-y-3.5 text-sm text-muted-foreground">
+            <ul className="space-y-3.5 text-[13px] text-muted-foreground">
               <li><Link to="/services#ai-agents" className="hover:text-foreground transition-colors">AI Agent Development</Link></li>
               <li><Link to="/services#qa-consulting" className="hover:text-foreground transition-colors">QA Consulting</Link></li>
               <li><Link to="/services#selenium" className="hover:text-foreground transition-colors">Selenium Training</Link></li>
@@ -66,28 +66,28 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
             <h4 className="font-display font-semibold mb-6 text-xs uppercase tracking-[0.3em] text-foreground">
               Contact
             </h4>
-            <ul className="space-y-4 text-sm text-muted-foreground">
+            <ul className="space-y-4 text-[13px] text-muted-foreground">
               <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary shrink-0" />
+                <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
                 <a href="tel:+250789769928" className="hover:text-foreground transition-colors">+250 789 769 928</a>
               </li>
               <li className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-primary shrink-0" />
+                <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
                 <span>Kigali, Rwanda</span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary shrink-0" />
+                <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
                 <a href="mailto:hello@chanai.tech" className="hover:text-foreground transition-colors">hello@chanai.tech</a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        <div className="pt-8 border-t border-black/5 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-4 text-[13px] text-muted-foreground">
           <p>
             © {new Date().getFullYear()} ChanAI Tech Consulting Company. All rights reserved.
           </p>
-          <p className="font-mono text-[10px] uppercase tracking-[0.4em]">
+          <p className="font-mono text-[9px] uppercase tracking-[0.4em]">
             Engineering Intelligence · Delivering Trust
           </p>
         </div>

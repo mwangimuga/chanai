@@ -282,10 +282,10 @@ const ServicesPage = () => {
             <span className="w-1.5 h-1.5 rounded-full bg-primary" />
             Services
           </div>
-          <h1 className="font-display font-bold text-5xl md:text-7xl leading-[1.08] tracking-tight mb-8 text-foreground animate-fade-in-up">
+          <h1 className="font-display font-bold text-3xl md:text-5xl lg:text-[58px] leading-[1.1] tracking-tight mb-6 text-foreground animate-fade-in-up">
             Engineering excellence. <span className="italic font-normal font-serif">At every layer.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-12 leading-relaxed animate-fade-in-up animation-delay-200">
+          <p className="max-w-2xl mx-auto text-sm md:text-[15px] text-muted-foreground mb-10 leading-relaxed animate-fade-in-up animation-delay-200">
             From strategic integration and autonomous agents to rigorous quality
             assurance — we build high-performance systems that scale.
           </p>
@@ -323,37 +323,37 @@ const ServicesPage = () => {
                       <span className="text-xs font-mono uppercase tracking-wider text-primary">{s.category}</span>
                     </div>
                     
-                    <h2 className="font-display font-bold text-3xl md:text-5xl text-foreground leading-tight mb-8">
+                    <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground leading-tight mb-6">
                       {s.title}
                     </h2>
                     
-                    <p className="text-muted-foreground text-lg leading-relaxed mb-10">{s.description}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-8">{s.description}</p>
 
                     <ul className="space-y-4 mb-10">
                       {s.benefits.map((b) => (
-                        <li key={b} className="flex items-start gap-4">
+                        <li key={b} className="flex items-start gap-3">
                           <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                          <span className="text-base text-foreground/90">{b}</span>
+                          <span className="text-sm text-foreground/90">{b}</span>
                         </li>
                       ))}
                     </ul>
 
                     {/* Engagement meta */}
                     <div className="grid grid-cols-2 gap-4 mb-8">
-                      <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl p-5">
-                        <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-2">Timeline</p>
-                        <p className="text-base text-foreground font-semibold">{s.timeline}</p>
+                      <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl p-4.5">
+                        <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-1.5">Timeline</p>
+                        <p className="text-sm text-foreground font-semibold">{s.timeline}</p>
                       </div>
-                      <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl p-5">
-                        <p className="text-[10px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-2">Engagement</p>
-                        <p className="text-base text-foreground font-semibold">{s.engagement}</p>
+                      <div className="border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl p-4.5">
+                        <p className="text-[9px] font-mono uppercase tracking-[0.25em] text-muted-foreground mb-1.5">Engagement</p>
+                        <p className="text-sm text-foreground font-semibold">{s.engagement}</p>
                       </div>
                     </div>
 
                     {/* Expandable deliverables + outcomes */}
                     <Accordion type="single" collapsible className="mb-8 border border-black/5 dark:border-white/5 bg-black/5 dark:bg-white/5 rounded-xl px-6">
                       <AccordionItem value="deliverables" className="border-b border-black/5 dark:border-white/5">
-                        <AccordionTrigger className="hover:no-underline py-5 text-left [&>svg]:text-primary font-display font-semibold text-foreground text-base">
+                        <AccordionTrigger className="hover:no-underline py-4 text-left [&>svg]:text-primary font-display font-semibold text-foreground text-sm">
                           What You Get — Deliverables
                         </AccordionTrigger>
                         <AccordionContent className="pb-6">
@@ -368,7 +368,7 @@ const ServicesPage = () => {
                         </AccordionContent>
                       </AccordionItem>
                       <AccordionItem value="outcomes" className="border-0">
-                        <AccordionTrigger className="hover:no-underline py-5 text-left [&>svg]:text-primary font-display font-semibold text-foreground text-base">
+                        <AccordionTrigger className="hover:no-underline py-4 text-left [&>svg]:text-primary font-display font-semibold text-foreground text-sm">
                           Engagement Outcomes
                         </AccordionTrigger>
                         <AccordionContent className="pb-6">
@@ -393,9 +393,9 @@ const ServicesPage = () => {
 
                     <Link
                       to="/book"
-                      className="group inline-flex items-center gap-2 text-primary font-serif text-lg font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+                      className="group inline-flex items-center gap-2 text-primary font-serif text-sm font-semibold border-b border-primary/30 hover:border-primary pb-0.5 transition-all duration-300"
                     >
-                      Book This Service <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                      Book This Service <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
                     </Link>
                   </div>
 
@@ -422,10 +422,10 @@ const ServicesPage = () => {
         <div className="container relative z-10 px-6">
           <div className="max-w-3xl mx-auto text-center mb-24">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">How We Engage</p>
-            <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-6 leading-tight">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground mb-5 leading-tight">
               A predictable process <span className="italic font-normal font-serif">for complex systems.</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-sm max-w-xl mx-auto leading-relaxed">
               Five clearly-defined stages from our first discovery call to long-term engineering partnership.
             </p>
           </div>
@@ -447,8 +447,8 @@ const ServicesPage = () => {
                     <div className="font-serif italic text-3xl text-primary/60 dark:text-primary/45 mb-6 select-none font-normal">
                       {s.step}
                     </div>
-                    <h3 className="font-display font-semibold text-xl text-foreground mb-3">{s.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-6">{s.desc}</p>
+                    <h3 className="font-display font-semibold text-lg text-foreground mb-2.5">{s.title}</h3>
+                    <p className="text-[13px] text-muted-foreground leading-relaxed mb-5">{s.desc}</p>
                   </div>
                   <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-primary/80 mt-auto">{s.duration}</p>
                 </div>
@@ -463,7 +463,7 @@ const ServicesPage = () => {
         <div className="container max-w-4xl px-6">
           <div className="text-center mb-20">
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-6">FAQ</p>
-            <h2 className="font-display font-bold text-4xl md:text-5xl text-foreground">
+            <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground">
               Questions, <span className="italic font-normal font-serif">answered.</span>
             </h2>
           </div>
@@ -477,10 +477,10 @@ const ServicesPage = () => {
               { q: "What if we already have an internal team?", a: "Even better. Our preferred mode is augmentation, not replacement. We embed alongside your engineers, transfer knowledge as we go, and aim to leave your team stronger than we found it." },
             ].map((item, idx) => (
               <AccordionItem key={idx} value={`faq-${idx}`} className="border border-black/5 dark:border-white/5 bg-background rounded-xl px-6">
-                <AccordionTrigger className="hover:no-underline py-5 text-left text-foreground font-display font-semibold text-base md:text-lg [&>svg]:text-primary">
+                <AccordionTrigger className="hover:no-underline py-4 text-left text-foreground font-display font-semibold text-sm md:text-base [&>svg]:text-primary">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-muted-foreground leading-relaxed text-sm md:text-base">
+                <AccordionContent className="pb-4 text-muted-foreground leading-relaxed text-[13px] md:text-sm">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -493,22 +493,22 @@ const ServicesPage = () => {
       <section className="py-40 relative overflow-hidden bg-background border-t border-black/5 dark:border-white/5">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[150px] animate-glow-pulse pointer-events-none" />
         <div className="container relative z-10 max-w-3xl text-center px-6">
-          <h2 className="font-display font-bold text-4xl md:text-6xl text-foreground mb-8 leading-tight">
+          <h2 className="font-display font-bold text-2xl md:text-4xl text-foreground mb-6 leading-tight">
             Ready to build something <span className="italic font-normal font-serif">extraordinary?</span>
           </h2>
-          <p className="text-muted-foreground text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm text-muted-foreground mb-10 max-w-xl mx-auto leading-relaxed">
             Join enterprise teams that trust ChanAI Tech to engineer their digital systems and automation.
           </p>
-          <div className="flex flex-wrap gap-12 justify-center font-serif text-lg">
+          <div className="flex flex-wrap gap-10 justify-center font-serif text-sm">
             <Link
               to="/book"
-              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-1 transition-all duration-300"
+              className="group inline-flex items-center gap-2 text-primary font-semibold border-b border-primary/30 hover:border-primary pb-0.5 transition-all duration-300"
             >
-              Book a Consultation <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+              Book a Consultation <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1.5 transition-transform duration-300" />
             </Link>
             <Link
               to="/about"
-              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-1 transition-all duration-300"
+              className="text-muted-foreground hover:text-foreground border-b border-transparent hover:border-foreground pb-0.5 transition-all duration-300"
             >
               Learn About Us
             </Link>
