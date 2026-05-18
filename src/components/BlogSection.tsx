@@ -72,14 +72,14 @@ const BlogSection = () => {
   if (!posts.length) return null;
 
   return (
-    <section id="blog" className="py-24 bg-secondary/15">
+    <section id="blog" className="py-24 bg-black/5 dark:bg-white/5 border-t border-black/5 dark:border-white/5">
       <div className="container">
         <div className="text-center max-w-2xl mx-auto mb-10">
           <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-primary mb-4">From Our Blog</p>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white leading-tight">
-            Insights from the <span className="text-electric-gradient">field.</span>
+          <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-foreground leading-tight">
+            Insights from the <span className="italic font-normal font-serif">field.</span>
           </h2>
-          <p className="text-white/70 mt-5">
+          <p className="text-sm text-muted-foreground mt-4">
             Practical engineering writing from the team — no fluff, no clickbait.
           </p>
         </div>
@@ -93,10 +93,10 @@ const BlogSection = () => {
                 <button
                   key={c}
                   onClick={() => setActiveCategory(c)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all border ${
+                  className={`px-3.5 py-1.5 rounded-full text-[11px] font-mono uppercase tracking-wider transition-all border ${
                     active
-                      ? "bg-primary/20 text-white border-primary/50 shadow-glow"
-                      : "border-white/10 text-white/65 hover:text-white hover:border-primary/30"
+                      ? "bg-primary/10 text-primary border-primary/40"
+                      : "border-black/10 dark:border-white/10 text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {c}
@@ -112,7 +112,7 @@ const BlogSection = () => {
             {activeTag && (
               <button
                 onClick={() => setActiveTag(null)}
-                className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-white/5 text-white/70 hover:bg-white/10"
+                className="px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider bg-black/5 dark:bg-white/5 text-muted-foreground hover:bg-black/10 dark:hover:bg-white/10"
               >
                 Clear ×
               </button>
@@ -125,8 +125,8 @@ const BlogSection = () => {
                   onClick={() => setActiveTag(active ? null : t)}
                   className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider transition-all ${
                     active
-                      ? "bg-primary/20 text-primary border border-primary/40"
-                      : "text-white/55 hover:text-white"
+                      ? "bg-primary/10 text-primary border border-primary/40"
+                      : "text-muted-foreground/70 hover:text-foreground"
                   }`}
                 >
                   <Tag className="w-2.5 h-2.5" />
@@ -138,7 +138,7 @@ const BlogSection = () => {
         )}
 
         {filtered.length === 0 ? (
-          <p className="text-center text-white/55 py-12">No posts match this filter.</p>
+          <p className="text-center text-muted-foreground py-12">No posts match this filter.</p>
         ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((p) => (
@@ -147,10 +147,10 @@ const BlogSection = () => {
                 to={`/community/blog/${p.slug}`}
                 onClick={() => trackClick(`blog:${p.slug}`)}
                 title={p.seo_description ?? p.excerpt ?? p.title}
-                className="group glass rounded-2xl overflow-hidden hover:border-primary/40 hover:-translate-y-1 transition-all cursor-pointer flex flex-col"
+                className="group bg-background border border-black/5 dark:border-white/5 rounded-2xl overflow-hidden hover:border-primary/40 hover:-translate-y-1 transition-all cursor-pointer flex flex-col"
               >
                 {p.cover_image_url ? (
-                  <div className="aspect-[16/9] overflow-hidden bg-white/5 relative">
+                  <div className="aspect-[16/9] overflow-hidden bg-black/5 dark:bg-white/5 relative">
                     <img
                       src={p.cover_image_url}
                       alt={p.seo_title ?? p.title}
@@ -162,7 +162,7 @@ const BlogSection = () => {
                     </span>
                   </div>
                 ) : (
-                  <div className="aspect-[16/9] bg-gradient-to-br from-primary/20 to-accent/10 flex items-center justify-center relative">
+                  <div className="aspect-[16/9] bg-primary/5 flex items-center justify-center relative border-b border-black/5 dark:border-white/5">
                     <BookOpen className="w-10 h-10 text-primary/60" />
                     <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[9px] font-mono uppercase tracking-[0.25em] bg-background/70 backdrop-blur-md text-primary border border-primary/30">
                       {p.category}
@@ -170,7 +170,7 @@ const BlogSection = () => {
                   </div>
                 )}
                 <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-white/45 mb-3">
+                  <p className="text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground mb-3">
                     {new Date(p.published_at).toLocaleDateString(undefined, {
                       month: "short",
                       day: "numeric",
@@ -178,11 +178,11 @@ const BlogSection = () => {
                     })}{" "}
                     · {p.author}
                   </p>
-                  <h3 className="font-display font-semibold text-lg text-white mb-2 group-hover:text-electric-gradient transition-colors">
+                  <h3 className="font-display font-semibold text-base text-foreground mb-2 group-hover:text-primary transition-colors">
                     {p.title}
                   </h3>
                   {p.excerpt && (
-                    <p className="text-sm text-white/70 leading-relaxed mb-4 flex-1 line-clamp-3">
+                    <p className="text-[13px] text-muted-foreground leading-relaxed mb-4 flex-1 line-clamp-3">
                       {p.excerpt}
                     </p>
                   )}
@@ -191,7 +191,7 @@ const BlogSection = () => {
                       {p.tags.slice(0, 3).map((t) => (
                         <span
                           key={t}
-                          className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/5 text-white/60"
+                          className="text-[9px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/5 text-muted-foreground"
                         >
                           {t}
                         </span>
